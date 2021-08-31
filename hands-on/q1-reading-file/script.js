@@ -5,4 +5,5 @@ let btn = document.querySelector("#load-btn").addEventListener('click', async fu
     let response = await axios.get('contact.txt') 
     let target = document.querySelector("#content")
     target.innerHTML = response.data
+    // cannot use innerText as it is 'escapred' and stored as text. browser will not render them as HTML
 })
