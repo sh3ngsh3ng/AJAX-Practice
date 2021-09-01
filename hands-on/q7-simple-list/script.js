@@ -41,8 +41,10 @@ btn.addEventListener('click', async function() {
         // povCharac gives a string
         for (let j = 0; j < povCharac.length; j++) {
             let newLi = document.createElement('li')
-
-            newLi.innerHTML = povCharac[j]
+            let response = await axios.get(povCharac[j])
+            let characName = response.data.name
+            // console.log(characName)
+            newLi.innerHTML = characName
             newUl.appendChild(newLi)
         }
 
@@ -50,9 +52,8 @@ btn.addEventListener('click', async function() {
         document.querySelector("#books").innerHTML += `
         <h1>Title: ${nameOfBook}</h1>
         <h3>Pages: ${pagesOfBook}<h3>
-        ${newUl}
-
         `
+        document.querySelector("#books").appendChild(newUl)
 
     }
 })
