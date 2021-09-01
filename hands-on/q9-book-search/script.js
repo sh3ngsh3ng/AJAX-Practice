@@ -1,19 +1,20 @@
 
 
 
-let BASE_URL = "https://openlibrary.org/search.json?title="
+let API_BASE_URL = "https://openlibrary.org/search.json?title="
 
 document.querySelector('#btn').addEventListener('click', async function() {
     let userInput = document.querySelector('#user-input').value
-    
     let x = userInput.replace(/ /g, "+")
-    let endpoint = BASE_URL + x
-    // console.log(endpoint) - correct
+    
+    let endpoint = API_BASE_URL + x
     let response = await axios.get(endpoint)
 
+ 
     let mainObj = response.data
     let docObj = mainObj.docs
     let bookList = docObj.docs // an array
+
 
     for (let i = 0; i < bookList.length; i++) {
         let eachBook = bookList[i]
