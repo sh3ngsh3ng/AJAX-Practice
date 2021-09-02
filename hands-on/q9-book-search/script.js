@@ -1,15 +1,14 @@
-
-
-
 let API_BASE_URL = "https://openlibrary.org/search.json?title="
 
 document.querySelector('#btn').addEventListener('click', async function() {
+    // extract from form and process the string
     let userInput = document.querySelector('#user-input').value
     let x = userInput.replace(/ /g, "+")
-    
-    let endpoint = API_BASE_URL + x
-    let response = await axios.get(endpoint)
 
+    let endpoint = API_BASE_URL + x
+    // console.log(endpoint)
+    let response = await axios.get(endpoint)
+    // console.log(response.data)
  
     let mainObj = response.data
     let docObj = mainObj.docs

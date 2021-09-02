@@ -1,2 +1,6 @@
+let url =  "https://inspiration.goprogram.ai/ "
 
-let url = "https://programming-quotes-api.herokuapp.com/quotes/random"
+
+
+
+
